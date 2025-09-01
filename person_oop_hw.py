@@ -6,6 +6,9 @@ class Person:
         self.height = height
         self.weight = weight
 
+    def __del__(self):
+        print("объект удален")
+
     def greet(self):
         print(f"привет меня зовут {self.name}")
 
@@ -19,17 +22,25 @@ class Person:
 
     def update_height(self, new_height):
         self.height = new_height
-        return f"теперь мой рост {self.height} см"
+        print(f"теперь мой рост {self.height} см")
 
-    def Human_or_woman(self):
+    def human_or_woman(self):
         print(f"привет мой пол это {self.gender}")
 
     def info(self):
-        return f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг"
+        print(f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг")
 
-p = Person("анна", 30, "женский", 165, 60)
-print(p.greet())
-print(p.info())
-print(p.birthday())
-print(p.update_weight(120))
-print(p.update_height(175))
+anna = Person("анна", 30, "женский", 165, 60)
+anna.greet()
+anna.info()
+anna.birthday()
+anna.update_weight(120)
+anna.update_height(175)
+
+print("программа завершена")
+
+def test():
+    anna = Person("анна", 30, "женский", 165, 60)
+test()
+
+print("программа завершена")
