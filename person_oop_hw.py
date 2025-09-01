@@ -11,7 +11,7 @@ class Person:
 
     def birthday(self):
         self.age += 1
-        return f"с днем рождения, теперь мне {self.age} лет"
+        print(f"с днем рождения, теперь мне {self.age} лет")
 
     def update_weight(self, new_weihgt):
         self.weight = new_weihgt
