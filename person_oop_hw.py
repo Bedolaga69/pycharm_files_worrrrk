@@ -44,3 +44,8 @@ def test():
 test()
 
 print("программа завершена")
+
+anna.name = "человек пук"
+anna.gender = "биба и боба"
+
+anna.info()
