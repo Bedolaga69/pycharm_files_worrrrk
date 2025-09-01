@@ -15,7 +15,7 @@ class Person:
 
     def update_weight(self, new_weihgt):
         self.weight = new_weihgt
-        return f"теперь мой вес {self.weight} кг"
+        print(f"теперь мой вес {self.weight} кг")
 
     def update_height(self, new_height):
         self.height = new_height
