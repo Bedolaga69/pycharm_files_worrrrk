@@ -15,10 +15,11 @@ def multiplication(a, b):
     return a * b
 
 def division(a, b):
-    if a == 0:
+    if b == 0:
         print("на ноль нельзя делить")
+        return 0
     else:
-        print(a // b)
+        return a / b
 
 def addition(a, b):
     return a + b
