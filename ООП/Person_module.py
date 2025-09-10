@@ -30,22 +30,22 @@ class Person:
     def info(self):
         print(f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг")
 
-anna = Person("анна", 30, "женский", 165, 60)
-anna.greet()
-anna.info()
-anna.birthday()
-anna.update_weight(120)
-anna.update_height(175)
-
-print("программа завершена")
-
-def test():
-    anna = Person("анна", 30, "женский", 165, 60)
-test()
-
-print("программа завершена")
-
-anna.name = "человек пук"
-anna.gender = "биба и боба"
-
-anna.info()
+# anna = Person("анна", 30, "женский", 165, 60)
+# anna.greet()
+# anna.info()
+# anna.birthday()
+# anna.update_weight(120)
+# anna.update_height(175)
+#
+# print("программа завершена")
+#
+# def test():
+#     anna = Person("анна", 30, "женский", 165, 60)
+# test()
+#
+# print("программа завершена")
+#
+# anna.name = "человек пук"
+# anna.gender = "биба и боба"
+#
+# anna.info()
