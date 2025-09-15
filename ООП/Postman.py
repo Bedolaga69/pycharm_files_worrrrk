@@ -3,9 +3,8 @@ from ООП.Post_module import Post
 
 
 class Postman(Person, Post):
-    def __init__(self):
-        self.__parcels = {}
+   pass
 anna = Postman("Геннадий", 65, "мужской", 210, 100)
 
 
-print(anna.receive_parcel())
+print(anna.send_parcel())
