@@ -1,59 +1,71 @@
-import random
+import random  # импортируем модуль random для генерации случайных чисел
 
-class Post:
-    def __init__(self):
-        self._parcels = {}
-        self._name = "post office"
-        self._post_id = "7732"
-        self._id_password = {}#словарь id пароль
-        print("Объект создан")
-    @property
-    def name(self):
-        return self._name  #геттер для получения имени почты
-    @property
-    def id(self):
-        return self._post_id   #геттер для айди почты
-    @name.setter
-    def name(self, new_name):
-        self._name = new_name  #сеттер для имени почты
 
-    @property
-    def parcels(self):
-        return self._parcels
+class Post:  # создаём класс Post (почтовое отделение)
 
-    def __generate_id(self):
-        while True:
-            parcel_id = str(random.randint(100, 999))
-            if parcel_id not in self._parcels:
-                return parcel_id
+    def __init__(self):  # конструктор вызывается при создании объекта Post
+        self._parcels = {}  # словарь посылок, хранит {id: название}
+        self._name = "post office"  # имя почтового отделения
+        self._post_id = "7732"  # уникальный id почтового отделения
+        self._id_password = {}  # словарь паролей {id: пароль}
+        print("Объект создан")  # сообщение в консоль при создании объекта
 
-    def send_parcel(self):
-        parcel_name = input("введите название посылки: ")
-        parcel_id = self.__generate_id()
-        self._parcels[parcel_id] = parcel_name
-        password = input(f"введите пароль для посылки {parcel_id}: ")
-        self._id_password[parcel_id] = password
-        print(f"посылка {parcel_name} успешно отправлена, id {parcel_id}")
+    @property  # превращает метод в геттер
+    def name(self):  # метод-геттер для имени почтового отделения
+        return self._name  # возвращаем значение _name
 
-    def receive_parcel(self):
-        parcel_id = input("введите id посылки: ")
-        if parcel_id in self._parcels: # проверка есть ли посылка с таким id
-            password = input("введите пароль: ")
-            if password == self._id_password[parcel_id]:   # сравнение пароля
-                del self._parcels[parcel_id]   # "удаление" посылки если пароль верный
-                print(f"посылка {parcel_id} получена")
+    @property  # превращает метод в геттер
+    def id(self):  # метод-геттер для id почтового отделения
+        return self._post_id  # возвращаем значение _post_id
+
+    @name.setter  # превращает метод в сеттер
+    def name(self, new_name):  # метод-сеттер для изменения имени почтового отделения
+        self._name = new_name  # записываем новое имя в _name
+
+    @property  # превращает метод в геттер
+    def parcels(self):  # метод-геттер для получения всех посылок
+        return self._parcels  # возвращаем словарь посылок
+
+    def __generate_id(self):  # приватный метод для генерации уникального id посылки
+        while True:  # бесконечный цикл до тех пор, пока не найдём уникальный id
+            parcel_id = str(random.randint(100, 999))  # генерируем случайное число от 100 до 999 и делаем строкой
+            if parcel_id not in self._parcels:  # проверяем, что id ещё не занят
+                return parcel_id  # возвращаем уникальный id
+
+    def send_parcel(self):  # метод для отправки посылки
+        parcel_name = input("введите название посылки: ")  # просим ввести название посылки
+        parcel_id = self.__generate_id()  # генерируем уникальный id для посылки
+        self._parcels[parcel_id] = parcel_name  # сохраняем посылку в словаре
+        password = input(f"введите пароль для посылки {parcel_id}: ")  # просим ввести пароль для этой посылки
+        self._id_password[parcel_id] = password  # сохраняем пароль в словарь паролей
+        print(f"посылка {parcel_name} успешно отправлена, id {parcel_id}")  # выводим подтверждение отправки
+
+    def receive_parcel(self):  # метод для получения посылки
+        parcel_id = input("введите id посылки: ")  # запрашиваем id посылки
+        if parcel_id in self._parcels:  # проверяем, есть ли посылка с таким id
+            password = input("введите пароль: ")  # запрашиваем пароль
+            if password == self._id_password[parcel_id]:  # проверяем правильность пароля
+                del self._parcels[parcel_id]  # удаляем посылку (считаем, что получена)
+                print(f"посылка {parcel_id} получена")  # сообщение об успешном получении
             else:
-                print("неверный пароль")    # уведомление об ошибке, что пароль не правильный
+                print("неверный пароль")  # сообщение при неправильном пароле
         else:
-            print(f"посылка с id {parcel_id} не найдена")   # уведомление, если посылки нет
+            print(f"посылка с id {parcel_id} не найдена")  # сообщение, если id нет в словаре
 
-# post = Post()
-# post.send_parcel()
-# post.send_parcel()
-# #print(post._Post__parcels)
-# print(post.parcels)
-# #print(post.name)
-# #print(post.id)
-# post.receive_parcel()
-# #print(post.parcels)
-# #print(post._Post__id_password)
+
+# post = Post()  # создаём объект Post, сразу печатается «Объект создан»
+#
+# post.send_parcel()  # отправляем первую посылку (будет ввод названия и пароля)
+#
+# post.send_parcel()  # отправляем вторую посылку (будет ввод)
+#
+# # print(post.Post_parcels)  #  попытка вывести приватный атрибут, не рекомендуется
+# print(post.parcels)  # выводим словарь посылок через геттер
+#
+# # print(post.name)  #  печать имени почтового отделения
+# # print(post.id)  #  печать id почтового отделения
+#
+# post.receive_parcel()  # пытаемся получить посылку (будет ввод id и пароля)
+#
+# # print(post.parcels)  #  вывод словаря посылок после получения
+# # print(post.Post_id_password)  #  печать словаря паролей (не рекомендуется)

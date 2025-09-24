@@ -1,95 +1,94 @@
-class Animal:
-    def __init__(self, name):
-        self.name = name
+class Animal:  # базовый класс для всех животных
+    def __init__(self, name, species):  # конструктор принимает имя и вид
+        self._name = name  # сохраняем имя животного
+        self._species = species  # сохраняем вид животного
 
-    def make_sound(self):
-        print("звук животного")
+    def make_sound(self):  # метод-заглушка для звуков животных
+        print("звук животного")  # базовое поведение
 
-    def move(self):
-        print(f"{self.name} двигается")
+    def move(self):  # метод-заглушка для движения
+        print(f"{self._name} двигается")  # базовое поведение
 
-    def info(self):
-        print(self.name)
+    def info(self):  # метод для печати информации о животном
+        print(self._name)  # выводим имя
 
 
 # --- ПТИЦЫ ---
-class Bird(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+class Bird(Animal):  # класс Bird наследует Animal
+    def __init__(self, name):  # конструктор принимает только имя
+        super().__init__(name, "Bird")  # вызываем конструктор Animal и указываем вид "Bird"
+        # self.name = name # альтернативный вариант (не нужен, потому что super()._init_ уже сделал это)
+        # Animal._init_(name)   # ещё один вариант вызова конструктора Animal (так тоже можно)
 
 
-class Vorobei(Bird):
-    def make_sound(self):
-        print("чирик")
+class Vorobei(Bird):  # воробей — наследник Bird
+    def make_sound(self):  # переопределяем метод make_sound
+        print("чирик")  # звук воробья
 
-    def move(self):
-        print("летает по небу")
+    def move(self):  # переопределяем метод move
+        print("летает по небу")  # движение воробья
 
 
-class Sinitsa(Bird):
-    def make_sound(self):
-        print("издает монгольское горловое пение")
+class Sinitsa(Bird):  # синица — наследник Bird
+    def make_sound(self):  # переопределяем звук
+        print("издает монгольское горловое пение")  # уникальный звук (шутка)
 
-    def move(self):
-        print("nigga MOVE!")
+    def move(self):  # переопределяем движение
+        print("nigga MOVE!")  # (неподходящая фраза — лучше заменить)
 
 
 # --- ДОМАШНИЕ ЖИВОТНЫЕ ---
-class HomeAnimal(Animal):
-    def __init__(self, name):
-        super().__init__(name)
+class Mammals(Animal):  # млекопитающие наследуют Animal
+    def __init__(self, name):  # конструктор принимает имя
+        super().__init__(name, "Mammal")  # вызываем Animal и указываем вид "Mammal"
 
 
-class Cat(HomeAnimal):
+class Cat(Mammals):  # кошка — наследник Mammals
     def make_sound(self):
-        print("мяу")
+        print("мяу")  # звук кошки
 
     def move(self):
-        print("бегает и играет")
+        print("бегает и играет")  # движение кошки
 
 
-class Dog(HomeAnimal):
+class Dog(Mammals):  # собака — наследник Mammals
     def make_sound(self):
-        print("гав")
+        print("гав")  # звук собаки
 
     def move(self):
-        print("бегает и виляет хвостом")
+        print("бегает и виляет хвостом")  # движение собаки
 
 
-# --- ЖИВОТНЫЕ В ЗООПАРКЕ ---
-class ZooAnimal(Animal):
-    def __init__(self, name):
-        super().__init__(name)
-
-
-class Croco(ZooAnimal):
+class Croco(Mammals):  # крокодил — наследник Mammals
     def make_sound(self):
-        print("рыг")
+        print("рыг")  # звук крокодила
 
     def move(self):
-        print("плавает в озере")
+        print("плавает в озере")  # движение крокодила
 
 
-class Giraffe(ZooAnimal):
+class Giraffe(Mammals):  # жираф — наследник Mammals
     def make_sound(self):
-        print("какой-то звук")
+        print("какой-то звук")  # звук жирафа
 
     def move(self):
-        print("шагает на длинных ногах")
+        print("шагает на длинных ногах")  # движение жирафа
 
 
-# --- ПРОВЕРКА ---
-animals = [
-    Vorobei("Воробей"),
-    Sinitsa("Синица"),
-    Cat("Барсик"),
-    Dog("Шарик"),
-    Croco("Крокодил"),
-    Giraffe("Жираф"),
-]
-
-for a in animals:
-    print("----")
-    a.info()
-    a.make_sound()
-    a.move()
+# animals = [  # список животных (закомментировано)
+#     Vorobei("Воробей"),
+#     Sinitsa("Синица"),
+#     Cat("Барсик"),
+#     Dog("Шарик"),
+#     Croco("Крокодил"),
+#     Giraffe("Жираф"),
+# ]
+#
+# for a in animals:  # перебираем всех животных
+#     print("----")  # разделитель
+#     a.info()  # выводим имя
+#     a.make_sound()  # каждый издаёт свой звук
+#     a.move()  # и двигается по-своему
+#
+v = Vorobei("Вова")  # создаём объект класса Vorobei с именем «Вова»
+print(v._name)  # печатаем имя воробья напрямую из атрибута
