@@ -58,6 +58,17 @@ class Dog(Mammals):  # собака — наследник Mammals
     def move(self):
         print("бегает и виляет хвостом")  # движение собаки
 
+def act(animal):#
+    if isinstance(animal, Cat):
+        animal.meow()
+    elif isinstance(animal, Dog):
+        animal.bark()
+
+barsek = Cat("Барсик")
+bobik = Dog("бобик")
+
+act(barsek)
+act(bobik)
 
 class Croco(Mammals):  # крокодил — наследник Mammals
     def make_sound(self):
