@@ -1,7 +1,7 @@
 # l = []
 # t = ()
 # d = {}
-#
+
 # print(type(l), type(t), type(d), sep="\n")
 #
 # d={"dict": 1, "dictionary": 2}
