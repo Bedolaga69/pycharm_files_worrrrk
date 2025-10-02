@@ -44,7 +44,7 @@ class Mammals(Animal):  # млекопитающие наследуют Animal
 
 
 class Cat(Mammals):  # кошка — наследник Mammals
-    def make_sound(self):
+    def meow(self):
         print("мяу")  # звук кошки
 
     def move(self):
@@ -52,7 +52,7 @@ class Cat(Mammals):  # кошка — наследник Mammals
 
 
 class Dog(Mammals):  # собака — наследник Mammals
-    def make_sound(self):
+    def bark(self):
         print("гав")  # звук собаки
 
     def move(self):
