@@ -30,8 +30,8 @@ class Person: #  определение класса Person — шаблон д�
     def info(self):# метод, который печатает краткую информацию о человеке
         print(f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг")
 
-    def __str__(self):
-        return f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг"
+    # def __str__(self):
+    #     return f"{self.name}, {self.age} лет, {self.gender}, рост {self.height} см, вес {self.weight} кг"
 
 
 # anna = Person("анна", 30, "женский", 165, 60)

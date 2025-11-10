@@ -1,5 +1,5 @@
 # numbers = [12, 35, 42, 15, 237, 64, 70]
-#
+
 # for num in numbers:
 #     if num == 237:
 #         break
@@ -18,6 +18,7 @@
 #         i += 1
 # print("итоговый список: ", roster)
 # print("удаленные числа: ", removed_num)
+
 
 
 # while True:

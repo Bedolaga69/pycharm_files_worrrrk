@@ -1,4 +1,4 @@
-# my_list = [1, 43, 12, 54, 73]
+my_list = [1, 43, 12, 54, 73]
 
 # my_list.append(7)
 # print(my_list)
@@ -20,7 +20,7 @@
 # print(my_list)
 
 # print(my_list.index(43, 0))
-#
+
 # print(my_list.index(12, 0, 3))
 
 # print(my_list.count(43))
@@ -30,8 +30,9 @@
 
 # my_list.sort(reverse=True)
 # print(my_list)
+
 # my_list2 = ["apple", "banana", "cherry", "date"]
-#
+
 # my_list2.sort(key=len)
 # print(my_list2)
 

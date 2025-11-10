@@ -1,4 +1,4 @@
-class Animal:  # базовый класс для всех животных
+class Animal:  # базовый класс для всех животных класс это чертеж
     def __init__(self, name, species):  # конструктор принимает имя и вид
         self._name = name  # сохраняем имя животного
         self._species = species  # сохраняем вид животного
@@ -34,7 +34,7 @@ class Sinitsa(Bird):  # синица — наследник Bird
         print("издает монгольское горловое пение")  # уникальный звук (шутка)
 
     def move(self):  # переопределяем движение
-        print("nigga MOVE!")  # (неподходящая фраза — лучше заменить)
+        print("n*gga MOVE!")  # (неподходящая фраза — лучше заменить)
 
 
 # --- ДОМАШНИЕ ЖИВОТНЫЕ ---
@@ -64,7 +64,7 @@ def act(animal):#
     elif isinstance(animal, Dog):
         animal.bark()
 
-barsek = Cat("Барсик")
+barsek = Cat("барсик")
 bobik = Dog("бобик")
 
 act(barsek)
