@@ -41,6 +41,7 @@ class Car:
         print(f"перекрашен в {self.color}")
 
     def toggle_doors(self):
+        self.doors_locked = not self.doors_locked
         if self.doors_locked:
             self.doors_locked = False
             print("двери разблокированы")
