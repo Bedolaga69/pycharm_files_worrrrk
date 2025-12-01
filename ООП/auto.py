@@ -43,25 +43,29 @@ class Car:
     def toggle_doors(self):
         self.doors_locked = not self.doors_locked
         if self.doors_locked:
-            self.doors_locked = False
-            print("двери разблокированы")
-        else:
-            self.doors_locked = True
             print("двери заблокированы")
+        else:
+            print("двери разблокированы")
 
-    def display_info(self):
-        print(f"Марка: {self.brand}")
-        print(f"Модель: {self.model}")
-        print(f"Год выпуска: {self.year_of_release}")
-        print(f"Цвет: {self.color}")
-        print(f"текущая скорость:{self.speed}")
+    # def display_info(self):
+    #     print(f"Марка: {self.brand}")
+    #     print(f"Модель: {self.model}")
+    #     print(f"Год выпуска: {self.year_of_release}")
+    #     print(f"Цвет: {self.color}")
+    #     print(f"текущая скорость:{self.speed}")
+
+    def __str__(self):
+        return (f"Марка:{self.brand}\nМодель: {self.model}\nГод выпуска: {self.year_of_release}\n"
+                f"Цвет: {self.color}\nТекущая скорость:{self.speed}")
 
 my_car = Car("Mersedes", "w222", 2014, "black")
-my_car.display_info()
+print(my_car)
+# my_car.display_info()
 my_car.start()
 my_car.toggle_doors()
 my_car.honk()
 my_car.speed_up(120)
 my_car.slow_down(40)
+my_car.slow_down(1000000)
 my_car.stop()
 my_car.new_color_car("фиолетовый")
