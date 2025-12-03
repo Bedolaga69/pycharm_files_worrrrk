@@ -8,3 +8,9 @@ class Item:
         self.value = value
         self.stackable = stackable
         self.quantity = quantity
+
+class Consumable(Item):
+    def __init__(self, name, description, item_type, value, effect_type, effect_value):
+        super().__init__(name, description, item_type, value, effect_type, effect_value)
+        self.effect_type = effect_type
+        self.effect_value = effect_value
