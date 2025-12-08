@@ -19,18 +19,17 @@ class Character:
         other_character.get_damage(self.attack)
 
     def use_item(self, item):
-        if item in self.inventory:
-            print(f"{self.name} использует {item}")
-            self.inventory.remove(item)
-        else:
-            print(f"предмет {item} не найден в инвентаре")
+            if item in self.inventory:
+                print(f"{self.name} использует {item}")
+                self.inventory.remove(item)
+            else:
+                print(f"предмет {item} не найден в инвентаре")
 
     def add_item(self, item):
         self.inventory.append(item)
         print(f"{item} добавлен в инвентарь {self.name}")
 
 
-# пример использования
 warrior = Character("воин", 100, 25, 10)
 maga = Character("маг", 80, 30, 25)
 
